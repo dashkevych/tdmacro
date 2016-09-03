@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'attachment' ); ?>
+				<?php get_template_part( 'template-parts/content', 'attachment' ); ?>
 
 				<?php tdmacro_post_nav(); ?>
 

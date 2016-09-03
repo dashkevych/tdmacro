@@ -23,7 +23,7 @@ get_header(); ?>
 				<div id="blog-grid" class="row content-grid">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="<?php echo esc_attr( tdmacro_column_class() ); ?> post-box">
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 					</div><!-- .col -->
 				<?php endwhile; ?>
 				</div><!-- .row -->
@@ -32,7 +32,7 @@ get_header(); ?>
 
 			<?php else : ?>
 
-				<?php get_template_part( 'content', 'none' ); ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; ?>
 

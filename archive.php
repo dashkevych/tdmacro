@@ -27,7 +27,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
                     
 					<div class="col-lg-4 col-md-4 three-columns post-box">
-					   <?php get_template_part( 'content', get_post_format() ); ?>
+					   <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 					</div><!-- .post-box -->
                     
 				<?php endwhile; ?>
@@ -37,7 +37,7 @@ get_header(); ?>
 
 			<?php else : ?>
 
-				<?php get_template_part( 'content', 'none' ); ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; ?>
 
