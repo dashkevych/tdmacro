@@ -18,11 +18,11 @@ function tdmacro_customize_register( $wp_customize ) {
 	//Accent Color
 	$wp_customize->add_setting( 'tdmacro_accent_color', array(
     	'default'        => '#2980b9',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_accent_color', array(
-		'label' => __( 'Accent Color', 'tdmacro' ),
+		'label' => esc_html__( 'Accent Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_accent_color',
 		'priority' => 1
@@ -31,11 +31,11 @@ function tdmacro_customize_register( $wp_customize ) {
 	//Header Background Color
 	$wp_customize->add_setting( 'tdmacro_header_bg', array(
     	'default'        => '#2c3e50',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_header_bg', array(
-		'label' => __( 'Header Background Color', 'tdmacro' ),
+		'label' => esc_html__( 'Header Background Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_header_bg',
 		'priority' => 2
@@ -44,11 +44,11 @@ function tdmacro_customize_register( $wp_customize ) {
     //Menu Background Color
 	$wp_customize->add_setting( 'tdmacro_menu_bg', array(
     	'default'        => '#2980b9',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_menu_bg', array(
-		'label' => __( 'Menu Background Color', 'tdmacro' ),
+		'label' => esc_html__( 'Menu Background Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_menu_bg',
 		'priority' => 100
@@ -57,11 +57,11 @@ function tdmacro_customize_register( $wp_customize ) {
     //Menu Text Color
 	$wp_customize->add_setting( 'tdmacro_menu_textcolor', array(
     	'default'        => '#ffffff',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_menu_textcolor', array(
-		'label' => __( 'Menu Text Color', 'tdmacro' ),
+		'label' => esc_html__( 'Menu Text Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_menu_textcolor',
 		'priority' => 101
@@ -70,11 +70,11 @@ function tdmacro_customize_register( $wp_customize ) {
     //Footer Background Color
 	$wp_customize->add_setting( 'tdmacro_footer_bg', array(
     	'default'        => '#1a2530',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_footer_bg', array(
-		'label' => __( 'Footer Background Color', 'tdmacro' ),
+		'label' => esc_html__( 'Footer Background Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_footer_bg',
 		'priority' => 102
@@ -83,11 +83,11 @@ function tdmacro_customize_register( $wp_customize ) {
     //Footer Primary Text Color
 	$wp_customize->add_setting( 'tdmacro_footer_primary_textcolor', array(
     	'default'        => '#e2e4e4',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_footer_primary_textcolor', array(
-		'label' => __( 'Footer Primary Text Color', 'tdmacro' ),
+		'label' => esc_html__( 'Footer Primary Text Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_footer_primary_textcolor',
 		'priority' => 103
@@ -96,11 +96,11 @@ function tdmacro_customize_register( $wp_customize ) {
     //Footer Secondary Text Color
 	$wp_customize->add_setting( 'tdmacro_footer_secondary_textcolor', array(
     	'default'        => '#c9ced4',
-    	'sanitize_callback' => 'sanitize_text_field'
+    	'sanitize_callback' => 'sanitize_hex_color'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tdmacro_footer_secondary_textcolor', array(
-		'label' => __( 'Footer Secondary Text Color', 'tdmacro' ),
+		'label' => esc_html__( 'Footer Secondary Text Color', 'tdmacro' ),
 		'section' => 'colors',
 		'settings' => 'tdmacro_footer_secondary_textcolor',
 		'priority' => 104
@@ -110,7 +110,7 @@ function tdmacro_customize_register( $wp_customize ) {
 	* Blog Settings
  	*/
  	$wp_customize->add_section( 'tdmacro_blog_settings', array(
-     	'title'    => __( 'Theme Options', 'tdmacro' ),
+     	'title'    => esc_html__( 'Theme Options', 'tdmacro' ),
      	'priority' => 2000,
 	) );
 
@@ -122,11 +122,11 @@ function tdmacro_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'tdmacro_is_featured_image_without_content', array(
         'type' => 'select',
-        'label' => __( 'Post with Featured Image', 'tdmacro' ),
+        'label' => esc_html__( 'Post with Featured Image', 'tdmacro' ),
         'section' => 'tdmacro_blog_settings',
         'choices' => array(
-            'show' => __( 'Show Post Content', 'tdmacro' ),
-            'hide' => __( 'Hide Post Content', 'tdmacro' ),
+            'show' => esc_html__( 'Show Post Content', 'tdmacro' ),
+            'hide' => esc_html__( 'Hide Post Content', 'tdmacro' ),
         ),
         'priority' => 2
     ));
@@ -134,30 +134,21 @@ function tdmacro_customize_register( $wp_customize ) {
     /* Auto Post Summary */
 	$wp_customize->add_setting( 'tdmacro_is_auto_post_summary', array(
         'default' => '1',
-        'sanitize_callback' => 'tdmacro_sanitize_numeric_value'
+        'sanitize_callback' => 'intval'
     ) );
 
 	$wp_customize->add_control( 'tdmacro_is_auto_post_summary', array(
         'type' => 'select',
-        'label' => __( 'Auto Post Summary', 'tdmacro' ),
+        'label' => esc_html__( 'Auto Post Summary', 'tdmacro' ),
         'section' => 'tdmacro_blog_settings',
         'choices' => array(
-            '1' => __( 'On', 'tdmacro' ),
-            '0' => __( 'Off', 'tdmacro' ),
+            '1' => esc_html__( 'On', 'tdmacro' ),
+            '0' => esc_html__( 'Off', 'tdmacro' ),
         ),
         'priority' => 3
     ));
 }
 add_action( 'customize_register', 'tdmacro_customize_register' );
-
-/**
- * Settings Sanitization
- */
-
- /** Numeric values only */
-function tdmacro_sanitize_numeric_value( $value ) {
-	return intval( $value );
-}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
