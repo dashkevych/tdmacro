@@ -147,7 +147,7 @@ pre:before {
 .hentry,
 .widget,
 #comments,
-.navigation.paging-navigation,
+.navigation.posts-navigation,
 .search.search-no-results .page-content,
 .error404 .error-404.not-found .page-content,
 .error404 ul.posts-container,
@@ -168,7 +168,7 @@ pre:before {
 .hentry,
 .widget,
 #comments,
-.navigation.paging-navigation,
+.navigation.posts-navigation,
 .search.search-no-results .page-content,
 .error404 .error-404.not-found .page-content,
 .error404 ul.posts-container,
@@ -202,8 +202,8 @@ pre,
 .site-main .post-navigation .nav-previous:before,
 .site-main .post-navigation .nav-next:before,
 #comments .comments-title:before,
-.site-main .navigation.paging-navigation .nav-previous a:before,
-.site-main .navigation.paging-navigation .nav-next a:after,
+.site-main .navigation.posts-navigation .nav-previous a:before,
+.site-main .navigation.posts-navigation .nav-next a:after,
 blockquote:before,
 pre:before,
 .entry-content .more-link:after {
@@ -606,19 +606,19 @@ a.button:hover {
 6.0 Navigation
 --------------------------------------------------------------*/
 .site-main .comment-navigation,
-.site-main .paging-navigation,
+.site-main .posts-navigation,
 .site-main .post-navigation {
 	margin: 0 0 30px;
 	overflow: hidden;
 }
 .comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
+.posts-navigation .nav-previous,
 .post-navigation .nav-previous {
 	float: left;
 	width: 50%;
 }
 .comment-navigation .nav-next,
-.paging-navigation .nav-next,
+.posts-navigation .nav-next,
 .post-navigation .nav-next {
 	float: right;
 	text-align: right;
@@ -693,29 +693,29 @@ a.button:hover {
 	margin-bottom: 45px;
 }
 
-.site-main .navigation.paging-navigation .nav-previous a {
+.site-main .navigation.posts-navigation .nav-previous a {
 	border-right: 1px solid #f7f9f9;
 }
 
-.site-main .navigation.paging-navigation .nav-next a {
+.site-main .navigation.posts-navigation .nav-next a {
 	border-left: 1px solid #f7f9f9;
 }
 
-.site-main .navigation.paging-navigation .nav-previous a:before {
+.site-main .navigation.posts-navigation .nav-previous a:before {
 	content: "\f104";
 	padding-right: 6px;
 }
 
-.site-main .navigation.paging-navigation .nav-next a:after {
+.site-main .navigation.posts-navigation .nav-next a:after {
 	content: "\f105";
 	padding-left: 6px;
 }
 
-.site-main .navigation.paging-navigation .meta-nav {
+.site-main .navigation.posts-navigation .meta-nav {
 	display: none;
 }
 
-.site-main .navigation.paging-navigation .nav-links a {
+.site-main .navigation.posts-navigation .nav-links a {
 	display: inline-block;
 	padding: 20px;
 	background: #fbfbfc;
