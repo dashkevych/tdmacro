@@ -11,9 +11,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
 </head>
@@ -23,15 +21,18 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container clearfix">
 			<div class="site-branding pull-left">
-				<?php if ( get_header_image() ) : ?>
-				<div class="website-logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php echo esc_url( get_header_image() ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-					</a>
-				</div><!-- .website-logo -->
-				<?php endif;?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+                <?php tdmacro_the_custom_logo(); ?>
+                
+				<?php if ( is_front_page() && is_home() ) : ?>
+                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                <?php else : ?>
+                    <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+                <?php endif;
+                
+                $description = get_bloginfo( 'description', 'display' );
+                if ( $description || is_customize_preview() ) : ?>
+                    <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+                <?php endif; ?>
 			</div><!-- .site-branding -->
 			<div class="header-controls pull-right">
 				<?php get_template_part( 'menu', 'social' ); ?>
@@ -45,7 +46,7 @@
 			<?php wp_nav_menu( array( 'container' => 'ul', 'menu_class' => 'nav-bar clearfix', 'theme_location' => 'primary') ); ?>
 		<?php else: ?>
 			<ul class="list-unstyled nav-bar clearfix">
-				<?php wp_list_pages('title_li=' ); ?>
+				<?php wp_list_pages( 'title_li=' ); ?>
 			</ul><!-- .nav-bar -->
 		<?php endif; ?>
 		</nav><!-- #site-navigation -->

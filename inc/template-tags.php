@@ -178,3 +178,18 @@ function tdmacro_single_posted_on() {
 
 	return $output;
 }
+
+if ( ! function_exists( 'tdmacro_the_custom_logo' ) ) :
+/**
+ * Displays the optional custom logo.
+ *
+ * Does nothing if the custom logo is not available.
+ *
+ * @since tdmacro 2.0
+ */
+function tdmacro_the_custom_logo() {
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
+	}
+}
+endif;

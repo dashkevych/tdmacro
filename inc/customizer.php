@@ -15,13 +15,6 @@ function tdmacro_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	// Renaming "Header Image" section to "Logo"
-	$wp_customize->add_section( 'header_image', array(
-		'title' => __( 'Custom Logo', 'tdmacro' ),
-		'theme_supports' => 'custom-header',
-		'priority' => 60,
-	) );
-
 	//Accent Color
 	$wp_customize->add_setting( 'tdmacro_accent_color', array(
     	'default'        => '#2980b9',

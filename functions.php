@@ -69,6 +69,16 @@ function tdmacro_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
+    
+    /*
+	 * Enable support for custom logo.
+	 */
+    add_theme_support( 'custom-logo', array(
+		'height'      => 140,
+		'width'       => 320,
+		'flex-height' => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+	) );
 }
 endif; // tdmacro_setup
 add_action( 'after_setup_theme', 'tdmacro_setup' );
@@ -176,11 +186,6 @@ function tdmacro_head() {
 <?php
 }
 add_action( 'wp_head', 'tdmacro_head' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
