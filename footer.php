@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer.
  *
- * Contains the closing of the #content div and all content after
+ * Contains the closing of the #content div and all content after.
  *
  * @package tdMacro
  */
@@ -22,10 +22,11 @@
 		<div class="footer-bottom">
 			<div class="container clearfix">
 				<div class="pull-left site-info">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tdmacro' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'tdmacro' ), 'WordPress' ); ?></a>
+                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tdmacro' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'tdmacro' ), 'WordPress' ); ?></a>
 					<span class="sep"> | </span>
-					<?php printf( __( 'Theme: %1$s by %2$s', 'tdmacro' ), 'tdmacro', '<a href="https://twitter.com/TarasDashkevych" rel="designer">Taras Dashkevych</a>' ); ?>
+					<?php printf( esc_html__( 'Theme: %1$s by %2$s', 'tdmacro' ), 'tdMacro', '<a href="https://themesharbor.com/" rel="designer">Themes Harbor</a>' ); ?>
 				</div><!-- .site-info -->
+                
 				<div class="pull-right social-links">
 					<?php get_template_part( 'menu', 'social' ); ?>
 				</div><!-- .social-links -->
