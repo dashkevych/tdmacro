@@ -19,3 +19,19 @@ function tdmacro_jetpack_setup() {
 	) );
 }
 add_action( 'after_setup_theme', 'tdmacro_jetpack_setup' );
+
+/**
+ * Custom render fucntion for the Jetpack Infinite Scroll
+ *
+ * @since tdmacro 1.0
+ */
+function tdmacro_infinite_scroll_render() {
+	echo '<div class="infinite-wrap">';
+	while( have_posts() ) {
+		the_post();
+		echo '<div class="col-lg-4 col-md-4 three-columns post-box infinite-scroll-item">';
+		get_template_part( 'template-parts/conten', get_post_format() );
+		echo '</div><!-- .col -->';
+	}
+	echo '</div><!-- .infinite-wrap -->';
+}

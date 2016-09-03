@@ -47,6 +47,6 @@
 
 	<?php the_tags( '<div class="entry-tags">', ' ', '</div><!-- .entry-tags -->' ); ?>
 
-	<?php echo tdmacro_author_section(); ?>
+	<?php get_template_part( 'template-parts/author', 'section' ); ?>
 
 </article><!-- #post-## -->
