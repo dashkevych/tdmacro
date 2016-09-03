@@ -44,8 +44,8 @@ function tdmacro_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'tdmacro' ),
-		'social' => __( 'Social Menu', 'tdmacro' ),
+		'primary' => esc_html__( 'Primary Menu', 'tdmacro' ),
+		'social' => esc_html__( 'Social Menu', 'tdmacro' ),
 	) );
 
 	// Setup the WordPress core custom background feature.
@@ -61,12 +61,14 @@ function tdmacro_setup() {
 		'comment-form',
 		'gallery',
 	) );
-
-	/**
-	 *	Remove Gallery Inline Styling
-	 *	@since tdmacro 1.0
+    
+    /*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
 	 */
-	add_filter( 'use_default_gallery_style', '__return_false' );
+	add_theme_support( 'title-tag' );
 }
 endif; // tdmacro_setup
 add_action( 'after_setup_theme', 'tdmacro_setup' );
@@ -79,9 +81,9 @@ add_action( 'after_setup_theme', 'tdmacro_setup' );
 function tdmacro_widgets_init() {
 
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'tdmacro' ),
+		'name'          => esc_html__( 'Sidebar', 'tdmacro' ),
 		'id'            => 'sidebar-1',
-		'description'   => '',
+		'description'   => esc_html__( 'Appears in the sidebar section of the site.', 'tdmacro' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h4 class="widget-title">',
@@ -89,9 +91,9 @@ function tdmacro_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Footer', 'tdmacro' ),
+		'name'          => esc_html__( 'Footer', 'tdmacro' ),
 		'id'            => 'footer-1',
-		'description'   => '',
+		'description'   => esc_html__( 'Appears in the footer section of the site.', 'tdmacro' ),
 		'before_widget' => '<div class="col-lg-3 col-md-3 footer-widget"><aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside></div><!-- .footer-widget -->',
 		'before_title'  => '<h4 class="widget-title">',
@@ -101,11 +103,15 @@ function tdmacro_widgets_init() {
 add_action( 'widgets_init', 'tdmacro_widgets_init' );
 
 /**
- * Register Google Fonts
+ * Register Google Fonts.
  */
 function tdmacro_google_fonts() {
 	$fonts_url = '';
-
+    
+    /* Translators: If there are characters in your language that are not
+	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
 	$sans_font = _x( 'on', 'Source Sans Pro: on or off', 'tdmacro' );
 
 	if ( 'off' !== $sans_font ) {
@@ -131,7 +137,7 @@ function tdmacro_scripts() {
 	wp_enqueue_style( 'tdmacro-fonts', tdmacro_google_fonts(), array(), null );
 
 	wp_enqueue_style( 'tdmacro-css-framework', get_template_directory_uri() . '/css/bootstrap.css' );
-	wp_enqueue_style( 'tdmacro-icons', get_template_directory_uri() . '/css/font-awesome.css' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
 	wp_enqueue_style( 'tdmacro-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'tdmacro-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -139,23 +145,23 @@ function tdmacro_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    
+    if ( ! is_singular() ) {
+		wp_enqueue_script( 'masonry' );
+	}
 
-	wp_enqueue_script( 'masonry' );
-
-	wp_enqueue_script( 'tdmacro-assets', get_template_directory_uri() . '/js/jquery.assets.js', array( 'jquery' ), '201401', true  );
-	wp_enqueue_script( 'tdmacro-script', get_template_directory_uri() . '/js/tdmacro.js', array( 'jquery' ), '201401', true  );
+	wp_register_script( 'tdmacro-assets', get_template_directory_uri() . '/js/jquery.assets.js', array( 'jquery' ), '201401', true  );
+	wp_enqueue_script( 'tdmacro-script', get_template_directory_uri() . '/js/tdmacro.js', array( 'tdmacro-assets' ), '201401', true  );
 }
 add_action( 'wp_enqueue_scripts', 'tdmacro_scripts' );
 
 /**
- *	Customize excerpts more tag
- *	@since tdmacro 1.0
+ *	Customize excerpts more tag.
  */
 function tdmacro_excerpt_more( $more ) {
-    global $post;
-	return '... <a class="more-link" href="'.esc_url( get_permalink( $post->ID ) ).'">'.__( 'Read More', 'tdmacro' ).'</a>';
+	return '&#x2026; <a class="more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . esc_html__( 'Read More', 'tdmacro' ) . '</a>';
 }
-add_filter('excerpt_more', 'tdmacro_excerpt_more');
+add_filter( 'excerpt_more', 'tdmacro_excerpt_more' );
 
 /**
  * IE8 Support
