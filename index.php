@@ -15,20 +15,22 @@ get_header(); ?>
 
 <div class="container">
 	<div class="row">
-		<div id="primary" class="content-area <?php echo esc_attr( tdmacro_get_blog_primary_class() ); ?>">
+		<div id="primary" class="content-area col-lg-12">
 			<main id="main" class="site-main" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
 				<div id="blog-grid" class="row content-grid">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<div class="<?php echo esc_attr( tdmacro_column_class() ); ?> post-box">
-					<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-					</div><!-- .col -->
+                    
+					<div class="col-lg-4 col-md-4 three-columns post-box">
+					   <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+					</div><!-- .post-box -->
+                    
 				<?php endwhile; ?>
 				</div><!-- .row -->
 
-				<?php tdmacro_paging_nav(); ?>
+				<?php the_posts_navigation(); ?>
 
 			<?php else : ?>
 
