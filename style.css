@@ -1602,6 +1602,18 @@ a.button:hover {
 }
 
 /*--------------------------------------------------------------
+11.7 Attachment template
+--------------------------------------------------------------*/
+.single-attachment .single-posted-on span:before {
+    content: "\2022";
+    padding: 0 6px 0 2px;
+}
+
+.single-attachment .single-posted-on span:first-child:before {
+    display: none;
+}
+
+/*--------------------------------------------------------------
 12.0 Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
