@@ -160,8 +160,9 @@ function tdmacro_scripts() {
 		wp_enqueue_script( 'masonry' );
 	}
 
-	wp_register_script( 'tdmacro-assets', get_template_directory_uri() . '/js/jquery.assets.js', array( 'jquery' ), '201401', true  );
-	wp_enqueue_script( 'tdmacro-script', get_template_directory_uri() . '/js/tdmacro.js', array( 'tdmacro-assets' ), '201401', true  );
+	wp_register_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.js', array(), '201609', true  );
+    wp_register_script( 'tinynav', get_template_directory_uri() . '/js/tinynav.js', array('jquery'), '201609', true  );
+	wp_enqueue_script( 'tdmacro-script', get_template_directory_uri() . '/js/tdmacro.js', array( 'tinynav' ), '201609', true  );
 }
 add_action( 'wp_enqueue_scripts', 'tdmacro_scripts' );
 
