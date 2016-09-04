@@ -7,36 +7,6 @@
  * @package tdMacro
  */
 
-if ( ! function_exists( 'tdmacro_paging_nav' ) ) :
-/**
- * Display navigation to next/previous set of posts when applicable.
- */
-function tdmacro_paging_nav() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'tdmacro' ); ?></h1>
-
-		<div class="nav-links">
-
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'tdmacro' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'tdmacro' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-
-	</nav><!-- .navigation -->
-	<?php
-}
-endif;
-
 if ( ! function_exists( 'tdmacro_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
@@ -53,8 +23,8 @@ function tdmacro_post_nav() {
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'tdmacro' ); ?></h1>
 		<div class="nav-links">
-			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-title">'.__( 'Previous Article', 'tdmacro' ).'</span> %title' ); ?>
-			<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="meta-title">'.__( 'Next Article', 'tdmacro' ).'</span> %title' ); ?>
+			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-title">'.esc_html__( 'Previous Article', 'tdmacro' ).'</span> %title' ); ?>
+			<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="meta-title">'.esc_html__( 'Next Article', 'tdmacro' ).'</span> %title' ); ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
@@ -76,7 +46,7 @@ function tdmacro_posted_on() {
 	$time_human_time_string = sprintf( $time_human_time_string,
 		__( 'Posted', 'tdmacro' ),
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ),
+		esc_html( human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ),
 		__( 'ago', 'tdmacro' )
 	);
 
@@ -147,10 +117,10 @@ function tdmacro_get_post_author() {
 
 	$output .= '<div class="author-info">';
 	$output .= '<div class="posted-on">'.tdmacro_posted_on().'</div><!-- .posted-on -->';
-	$output .= '<span class="author-meta">'.__( 'By ', 'tdmacro' ) . '</span>';
+	$output .= '<span class="author-meta">'.esc_html__( 'By ', 'tdmacro' ) . '</span>';
 	$output .= sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			esc_url( get_author_posts_url( $current_user_id ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'tdmacro' ), get_the_author() ) ),
+			esc_attr( sprintf( esc_html__( 'View all posts by %s', 'tdmacro' ), get_the_author() ) ),
 			esc_html( get_the_author() )
 			);
 
@@ -167,13 +137,12 @@ function tdmacro_get_post_author() {
  */
 function tdmacro_single_posted_on() {
 	$output = '<span class="avatar-container">' . get_avatar( get_the_author_meta( 'ID' ) , 132 ) . '</span><!-- .avatar-container -->';
-	$output .= '<span class="author-meta">'.__( 'Posted by ', 'tdmacro' ) . '</span>';
+	$output .= '<span class="author-meta">'.esc_html__( 'Posted by ', 'tdmacro' ) . '</span>';
 	$output .= sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'tdmacro' ), get_the_author() ) ),
+			esc_attr( sprintf( esc_html__( 'View all posts by %s', 'tdmacro' ), get_the_author() ) ),
 			esc_html( get_the_author() )
 			);
-	$output .= '<span class="sep">/</span>';
 	$output .= tdmacro_posted_on();
 
 	return $output;

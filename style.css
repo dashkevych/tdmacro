@@ -1178,10 +1178,16 @@ a.button:hover {
 	display: none;
 }
 
+.single .single-posted-on .regular-date:before,
+.single .single-posted-on .edit-link:before {
+    content: "\2022";
+    padding: 0 6px 0 2px;
+}
+
 .single .hentry .entry-footer,
 .page .hentry .entry-footer {
-	margin-left:-45px;
-	margin-right:-45px;
+	margin-left: -45px;
+	margin-right: -45px;
 	margin-top: 15px;
 }
 
