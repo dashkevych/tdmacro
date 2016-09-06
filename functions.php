@@ -79,6 +79,11 @@ function tdmacro_setup() {
 		'flex-height' => true,
         'header-text' => array( 'site-title', 'site-description' ),
 	) );
+    
+    /*
+	 * This theme styles the visual editor to resemble the theme style.
+	 */
+	add_editor_style( array( 'css/editor-style.css', tdmacro_google_fonts() ) );
 }
 endif; // tdmacro_setup
 add_action( 'after_setup_theme', 'tdmacro_setup' );
