@@ -1658,7 +1658,7 @@ a.button:hover {
 	margin-bottom: 30px;
 }
 
-#infinite-handle span {
+#page #infinite-handle span {
     position: relative;
     display: inline-block;
     background: #ffffff;
@@ -1668,7 +1668,7 @@ a.button:hover {
     font-weight: bold;
 }
 
-#infinite-handle span:hover {
+#page #infinite-handle span:hover {
     color: #b0bac3;
 }
 
