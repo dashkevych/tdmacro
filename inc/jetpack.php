@@ -12,10 +12,11 @@
  */
 function tdmacro_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'blog-grid',
+		'container' => 'main',
 		'footer'    => 'page',
 		'render' => 'tdmacro_infinite_scroll_render',
-		'wrapper' => false
+		'wrapper' => false,
+        'footer_widgets' => 'footer-1',
 	) );
 }
 add_action( 'after_setup_theme', 'tdmacro_jetpack_setup' );

@@ -161,7 +161,8 @@ pre:before {
 .error404 .error-404.not-found .page-content,
 .error404 ul.posts-container,
 .search.search-no-results ul.posts-container,
-#gotop {
+#gotop,
+#infinite-handle span {
 	background: #ffffff;
 	-moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
 	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.04);
@@ -215,7 +216,8 @@ pre,
 .site-main .navigation.posts-navigation .nav-next a:after,
 blockquote:before,
 pre:before,
-.entry-content .more-link:after {
+.entry-content .more-link:after,
+#infinite-handle span:before {
 	font-family: FontAwesome;
 	font-weight: normal;
 	font-style: normal;
@@ -1637,23 +1639,51 @@ a.button:hover {
 }
 
 /*--------------------------------------------------------------
-12.0 Infinite scroll
+# 12.0 Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll.neverending .paging-navigation,
-.infinite-scroll.neverending .site-footer,
-#infinite-handle { /* Theme Footer (when set to scrolling) */
+.infinite-scroll .paging-navigation,
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
 	display: none;
 }
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
 	display: block;
 }
 
-.infinite-loader .spinner,
 #infinite-handle {
-	display: none;
+	text-align: center;
+	margin-bottom: 30px;
 }
+
+#infinite-handle span {
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    color: #171C22;
+    padding: 15px 20px 15px 70px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#infinite-handle span:hover {
+    color: #b0bac3;
+}
+
+#infinite-handle span:before {
+	content: "\f021";
+    position: absolute;
+    top: 0; left: 0;
+    width: 50px;
+    height: 100%;
+	border-right: 1px solid #f7f9f9;
+    background: #fbfbfc;
+    padding: 15px 0;
+    border-radius: 4px 0 0 4px;
+}
+
 
 /*--------------------------------------------------------------
 13.0 Share Buttons
