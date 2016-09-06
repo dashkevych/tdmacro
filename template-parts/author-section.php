@@ -7,8 +7,7 @@
 
 $current_author_id = get_the_author_meta( 'ID' );
 
-?>
-
+if ( get_the_author_meta( 'description', $current_author_id ) ) : ?>
 <div class="author-section">
     <div class="about clearfix">
         <div class="gravatar"><?php echo get_avatar( $current_author_id, 192 ); ?></div><!-- .gravatar -->
@@ -19,3 +18,4 @@ $current_author_id = get_the_author_meta( 'ID' );
         </div><!-- .info -->
     </div> <!-- .about -->
 </div><!-- .author-section -->
+<?php endif; ?>
