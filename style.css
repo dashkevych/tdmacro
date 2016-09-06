@@ -1,10 +1,10 @@
 /*
 Theme Name: tdMacro
-Theme URI: http://demo.tdwp.us/tdmacro/
-Author: Taras Dashkevych
-Author URI: https://twitter.com/TarasDashkevych
-Description: tdMacro is a responsive, clean and elegant blogging theme. This theme comes with custom colors and social icons. tdMacro theme is translation ready and optimized for SEO.
-Version: 1.0.4
+Theme URI: http://demo.themesharbor.com/tdmacro/
+Author: Themes Harbor
+Author URI: http://themesharbor.com/
+Description: tdMacro is a clean, modern and sophisticated masonry grid style WordPress theme made for any type of bloggers. This theme is fully responsive which allows your site to adapt to different screen sizes. Theme comes with a strong focus on typography and minimalistic design. Most importantly, tdMacro is easy to set up and manage.
+Version: 2.0
 License: GNU General Public License version 3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: tdmacro
@@ -55,7 +55,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight:bold;
+	font-weight: bold;
+}
+
+.site-content h1,
+.site-content h2,
+.site-content h3,
+.site-content h4,
+.site-content h5,
+.site-content h6 {
+    color: #171C22;
 }
 
 a {

@@ -117,16 +117,16 @@ function tdmacro_customize_register( $wp_customize ) {
 	/* Hide/show post content when post has a featured image */
 	$wp_customize->add_setting( 'tdmacro_is_featured_image_without_content', array(
         'default' => 'hide',
-        'sanitize_callback' => 'sanitize_text_field'
+        'sanitize_callback' => 'tdmacro_sanitize_post_content_option'
     ) );
 
     $wp_customize->add_control( 'tdmacro_is_featured_image_without_content', array(
-        'type' => 'select',
-        'label' => esc_html__( 'Post with Featured Image', 'tdmacro' ),
+        'type' => 'radio',
+        'label' => esc_html__( 'Post with a Featured Image', 'tdmacro' ),
         'section' => 'tdmacro_blog_settings',
         'choices' => array(
-            'show' => esc_html__( 'Show Post Content', 'tdmacro' ),
-            'hide' => esc_html__( 'Hide Post Content', 'tdmacro' ),
+            'show' => esc_html__( 'Show Content', 'tdmacro' ),
+            'hide' => esc_html__( 'Hide Content', 'tdmacro' ),
         ),
         'priority' => 2
     ));
@@ -134,21 +134,43 @@ function tdmacro_customize_register( $wp_customize ) {
     /* Auto Post Summary */
 	$wp_customize->add_setting( 'tdmacro_is_auto_post_summary', array(
         'default' => '1',
-        'sanitize_callback' => 'intval'
+        'sanitize_callback' => 'tdmacro_sanitize_post_excerpt_option'
     ) );
 
 	$wp_customize->add_control( 'tdmacro_is_auto_post_summary', array(
-        'type' => 'select',
-        'label' => esc_html__( 'Auto Post Summary', 'tdmacro' ),
+        'type' => 'radio',
+        'label' => esc_html__( 'Post Excerpts', 'tdmacro' ),
         'section' => 'tdmacro_blog_settings',
         'choices' => array(
-            '1' => esc_html__( 'On', 'tdmacro' ),
-            '0' => esc_html__( 'Off', 'tdmacro' ),
+            '1' => esc_html__( 'Automatic excerpt', 'tdmacro' ),
+            '' => esc_html__( 'Manual excerpt', 'tdmacro' ),
         ),
-        'priority' => 3
+        'priority' => 3,
     ));
 }
 add_action( 'customize_register', 'tdmacro_customize_register' );
+
+/** 
+ * Sanitization: Post with a Featured Image
+ */
+function tdmacro_sanitize_post_content_option( $value ) {    
+    if ( in_array( $value, array( 'show', 'hide' ) ) ) {
+        return $value;
+    } else {
+        return 'hide';
+    }
+}
+
+/** 
+ * Sanitization: Post Excerpts
+ */
+function tdmacro_sanitize_post_excerpt_option( $value ) {
+    if ( '1' == $value ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
