@@ -217,3 +217,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load custom colors file.
  */
 require get_template_directory() . '/inc/custom-colors.php';
+
+/**
+ * Load Dashboard help file.
+ */
+require get_template_directory() . '/inc/help/helper.php';
