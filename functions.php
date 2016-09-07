@@ -131,7 +131,7 @@ function tdmacro_google_fonts() {
 
 	if ( 'off' !== $sans_font ) {
 		$font_families = array();
-		$font_families[] = 'Source Sans Pro:400,600,700';
+		$font_families[] = 'Source Sans Pro:400,400i,700,700i';
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
