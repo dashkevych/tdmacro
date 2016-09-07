@@ -31,11 +31,16 @@ function tdmacro_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
-	// adds a custom class if user wants to hide post content on a blog page
+	// adds a custom class if user wants to hide post content on a blog page.
 	// when post has a featured image
-	if( tdmacro_show_featured_image_only() ) {
+	if ( tdmacro_show_featured_image_only() ) {
 		$classes[] = 'featured-image-only';
 	}
+    
+    // Adds class if the sidebar does not have any widgets.
+    if ( !is_active_sidebar( 'sidebar-1' ) ) {
+        $classes[] = 'inactive-sidebar';
+    }
 
 	return $classes;
 }

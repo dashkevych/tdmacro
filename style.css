@@ -826,7 +826,11 @@ a.button:hover {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-#secondary {}
+.single.inactive-sidebar #primary,
+.page.inactive-sidebar #primary {
+    margin: 0 auto;
+    float: none;
+}
 
 .widget {
 	padding: 45px;
