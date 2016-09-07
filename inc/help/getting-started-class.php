@@ -182,10 +182,10 @@ class Themes_Harbor_Getting_Started_Admin {
         }
 
         // Getting Started javascript
-        wp_enqueue_script( 'getting-started', get_template_directory_uri() . '/inc/admin/assets/getting-started.js', array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_script( 'getting-started', get_template_directory_uri() . '/inc/help/assets/getting-started.js', array( 'jquery' ), '1.0.0', true );
         
         // Getting Started styles
-        wp_enqueue_style( 'getting-started', get_template_directory_uri() . '/inc/admin/assets/getting-started.css', false, '1.0.0' );
+        wp_enqueue_style( 'getting-started', get_template_directory_uri() . '/inc/help/assets/getting-started.css', false, '1.0.0' );
     }
     
 }
