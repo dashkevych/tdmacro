@@ -109,7 +109,7 @@ class Themes_Harbor_Getting_Started_Admin {
                         }
 
                     } else {
-                        esc_hrml_e( 'This help file feed seems to be temporarily unavailable but you can always view it on Themes Harbor website.', 'tdmacro' );
+                        esc_html_e( 'This help file feed seems to be temporarily unavailable but you can always view it on Themes Harbor website.', 'tdmacro' );
                     }
 
                 ?>

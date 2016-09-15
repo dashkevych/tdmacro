@@ -159,3 +159,40 @@ Body
     list-style: disc;
     margin-left: 20px;
 }
+
+/*--------------------------------------------------------------
+Responsive
+--------------------------------------------------------------*/
+@media only screen and (max-width:768px) { 
+    .getting-started .page-header .theme-screenshot,
+    .getting-started .page-header .theme-info,
+    .getting-started .page-body .page-content,
+    .getting-started .page-body .page-sidebar,
+    .getting-started .social-col {
+        float: none;
+        width: 100%;
+    }
+    
+    .getting-started .page-header .theme-screenshot {
+        margin: 35px 0 0;
+    }
+    
+    .getting-started .single-panel {
+        border-bottom: 1px solid #f2f3f3;
+    }
+    
+    .getting-started .sidebar-widget {
+        border: none;
+    }
+    
+    .getting-started {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    .getting-started .page-body .page-sidebar {
+        padding: 35px 40px 10px;
+        background: #ffffff;
+        margin-top: 1px;
+    }
+}
